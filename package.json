@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
     "yup": "^0.26.10"
   },
   "devDependencies": {
@@ -24,6 +25,7 @@
     "lint-staged": "^8.1.4",
     "node-fetch": "^2.3.0",
     "prettier": "^1.16.4",
+    "supertest": "^4.0.2",
     "webpack": "^4.29.4"
   },
   "scripts": {

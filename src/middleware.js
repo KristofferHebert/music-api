@@ -7,10 +7,7 @@ const validToken = (err, req, res, next) => {
   // if(!req.get('authorization') || !isValidToken(req.get('authorization'))){
   //     next(new Error('Please provide Authorization token'))
   // }
-  // next()
   next();
 };
 
-const rateLimiter = (err, req, res, next) => {};
-
-export { errorLogger, rateLimiter, validToken };
+export { errorLogger, validToken };

@@ -21,9 +21,6 @@ it('GET ALL - Should respond 200 with all musicians', done => {
   request
     .get('/musicians')
     .expect('Content-Type', /json/)
-    .expect(async res => {
-      // Respond with correct muscicians
-    })
     .expect(200, musicians, done);
 });
 

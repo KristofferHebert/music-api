@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import apicache from 'apicache';
 import rateLimit from 'express-rate-limit';
 
-import { errorLogger, validToken } from './middleware';
+import { errorLogger, validateToken } from './middleware';
 import musicians from './musicians';
 import schema from './schema';
 
@@ -14,7 +14,7 @@ const app = express();
 // Adding logging
 app.use(morgan('dev'));
 
-// Add sane default security
+// Add sane default security settings
 app.use(helmet());
 
 // Handle JSON
@@ -55,7 +55,7 @@ router.get('/:id', cache('30 minutes'), (req, res, next) => {
   }
 });
 
-router.put('/:id', validToken, (req, res, next) => {
+router.put('/:id', validateToken, (req, res, next) => {
   try {
     const ID = req.params.id;
 
@@ -85,6 +85,7 @@ router.put('/:id', validToken, (req, res, next) => {
 });
 
 // Catch all errors
+// Allows for reusable error responses
 router.use(errorLogger);
 
 app.use('/musicians', apiLimiter, router);
